@@ -23,6 +23,7 @@
     />
 
     <style>
+
         /* Style for smooth scrolling */
         html {
           scroll-behavior: smooth;
@@ -36,11 +37,13 @@
 
 
         header {
-          background-color: #026d20; /* bg-gray-800 */
+          background: linear-gradient(
+              to right,
+              rgba(0, 0, 0, 0.4),  /* Dark overlay that fades */
+              rgba(0, 0, 0, 0)     /* Transparent */
+          ), {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %};
           text-align: center;
-          background-color: {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %}; /* Use active theme color or default color */
-
-        }
+      }
 
         .social-icons a i {
           font-size: 24px; /* Adjust the font size to make the icons bigger */
@@ -133,7 +136,7 @@
               height: 100%;
               background-image: url("{{ featured.background_image.url }}");
               background-size: cover;
-              filter: grayscale(100%);
+              filter: blur(0.7em);
               z-index: 1;
             }
 
@@ -144,10 +147,70 @@
               padding-top: 1rem; /* Add padding to the top of the footer */
               padding-bottom: 1rem; /* Add padding to the bottom of the footer */
             }
+
+            .social-icons a i {
+              transition: transform 0.2s, color 0.2s;
+          }
+          
+          .social-icons a i:hover {
+              transform: scale(1.2);
+              color: rgba(255, 255, 255, 0.8);
+          }
+
+          .release-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .release-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #featured {
+          background-attachment: fixed;
+      }
+
+      .bg-white {
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .bg-white:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      transition: opacity 0.3s ease;
+      opacity: 1;
+  }
+
+  .bg-overlay {
+    transition: opacity 0.3s ease;
+}
+
+#tour:hover .bg-overlay {
+    opacity: 0.7;
+}
+
+a.inline-block {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+a.inline-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
             
     </style>
   </head>
   <body>
+    <div class="h-screen flex flex-col">
     <!-- Header section -->
     <header class="text-white py-4">
       <div class="container mx-auto px-4">
@@ -176,18 +239,14 @@
     </header>
 
     <!-- Featured content section -->
-<section id="featured" class="bg-gray-200 relative h-screen">
+<section id="featured" class="bg-gray-200 relative flex-grow">
   <div class="container mx-auto px-4 py-20 relative z-10">
-    <h2
-      class="text-5xl lg:text-5xl font-bold mb-4 {% if featured.is_dark_text %}text-gray-900{% else %}text-white{% endif %}"
-    >
+    <h2 class="text-4xl sm:text-5xl lg:text-5xl font-bold mb-4 {% if featured.is_dark_text %}text-gray-900{% else %}text-white{% endif %}">
       {{ featured.title }}
     </h2>
-    <p
-      class="text-2xl lg:text-3xl mb-4 {% if featured.is_dark_text %}text-black-900{% else %}text-gray-300{% endif %}"
-    >
+    <p class="text-xl sm:text-2xl lg:text-3xl mb-4 {% if featured.is_dark_text %}text-black-900{% else %}text-gray-300{% endif %}">
       {{ featured.text }}
-    </p>
+  </p>
 
     <img
       src="{{ featured.featured_image.url }}"
@@ -202,6 +261,7 @@
     >
   </div>
 </section>
+</div>
 
       <!-- Contact section -->
       <section id="contact" class="bg-gray-100">
