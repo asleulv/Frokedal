@@ -56,7 +56,7 @@
           />
           {% endif %}
     
-          <div class="flex justify-center space-x-7 sm:space-x-8 mb-4">
+          <div class="flex justify-center space-x-7 sm:space-x-8 mb-2">
             {% for platform in social_platforms %}
             <a
               href="{{ platform.url }}"
@@ -96,7 +96,7 @@
               </p>
               <a
   href="{{ featured.button_url }}"
-  class="w-auto sm:w-auto py-3 px-8 sm:px-20 rounded-full font-[Cabin]  text-lg sm:text-2xl text-white transition-colors duration-300"
+  class="w-auto sm:w-auto py-1 px-4 sm:px-20 rounded-full font-[Cabin]  text-lg sm:text-2xl text-white transition-colors duration-300"
   style="background-color: {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %};"
   onmouseover="this.style.backgroundColor='rgba(0, 85, 25, 1)';"
   onmouseout="this.style.backgroundColor='{% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %}';"
