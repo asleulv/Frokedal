@@ -90,14 +90,15 @@
                 {{ featured.text }}
               </p>
               <a
-                href="{{ featured.button_url }}"
-                class="py-3 px-8 rounded-full text-base sm:text-lg text-white transition-colors duration-300"
-                style="background-color: {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %};"
-                onmouseover="this.style.backgroundColor='rgba(0, 85, 25, 1)';"
-                onmouseout="this.style.backgroundColor='{% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %}';"
-              >
-                {{ featured.button_text }}
-              </a>
+  href="{{ featured.button_url }}"
+  class="w-auto sm:w-auto py-3 px-8 sm:px-12 rounded-full text-lg sm:text-2xl text-white transition-colors duration-300"
+  style="background-color: {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %};"
+  onmouseover="this.style.backgroundColor='rgba(0, 85, 25, 1)';"
+  onmouseout="this.style.backgroundColor='{% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %}';"
+>
+  {{ featured.button_text }}
+</a>
+
             </div>
           </div>
         </div>
@@ -194,14 +195,15 @@
     <!-- Add call to action section -->
     <div class="text-center mt-8">
       <a
-        href="https://www.songkick.com/artists/8444998"
-        class="py-2 px-6 rounded-full text-lg text-white transition-colors duration-300"
-        style="background-color: {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %};"
-        onmouseover="this.style.backgroundColor='rgba(0, 85, 25, 1)';"
-        onmouseout="this.style.backgroundColor='{% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %}';"
-      >
-        Buy Tickets
-      </a>
+  href="https://www.songkick.com/artists/8444998"
+  class="w-auto sm:w-auto py-2 px-6 sm:px-12 rounded-full text-lg sm:text-2xl text-white transition-colors duration-300"
+  style="background-color: {% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %};"
+  onmouseover="this.style.backgroundColor='rgba(0, 85, 25, 1)';"
+  onmouseout="this.style.backgroundColor='{% if active_theme_color %}{{ active_theme_color.color }}{% else %}#026d20{% endif %}';"
+>
+  Buy Tickets
+</a>
+
     </div>
   </div>
 </section>
