@@ -34,8 +34,8 @@
       >
         <div
           class="absolute inset-0"
-          style="background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 50%),
-                  linear-gradient(to bottom left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 50%);"
+          style="background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 70%),
+                  linear-gradient(to bottom left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 70%);"
         ></div>
       </div>
     
@@ -80,13 +80,13 @@
             {% endif %}
     
             <!-- Featured Text -->
-            <div class="bg-white bg-opacity-50 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center w-full lg:w-1/2">
+            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
 
 
-              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-medium mb-4 {% if featured.is_dark_text %}text-gray-700{% else %}text-gray-900{% endif %}">
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-medium mb-4 {% if featured.is_dark_text %}text-gray-700{% else %}text-gray-100{% endif %}">
                 {{ featured.title }}
               </h2>
-              <p class="text-lg sm:text-xl lg:text-2xl mb-6 {% if featured.is_dark_text %}text-gray-600{% else %}text-gray-800{% endif %}">
+              <p class="text-lg text-center sm:text-xl lg:text-2xl mb-6 {% if featured.is_dark_text %}text-gray-600{% else %}text-gray-100{% endif %}">
                 {{ featured.text }}
               </p>
               <a
