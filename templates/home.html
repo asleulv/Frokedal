@@ -143,10 +143,11 @@
                 </div>
                 
                 <div class="relative z-10 mt-auto">
-                    <a href="{{ featured.button_url }}" class="btn-strike w-full text-center">
-                        {{ featured.button_text }}
-                    </a>
-                </div>
+                  <a href="{{ featured.button_url }}" 
+                    class="btn-strike w-full text-center bg-[var(--accent)] md:bg-black border-[var(--accent)] md:border-black text-white">
+                      {{ featured.button_text }}
+                  </a>
+              </div>
             </div>
         </section>
 
@@ -214,14 +215,23 @@
                           <p class="mono text-[11px] opacity-40 italic">{{ release.format }} &mdash; {{ release.release_date|date:"Y" }}</p>
                       </div>
                       
-                      <div class="flex gap-6 pt-1">
-                          {% if release.spotify_url %}
-                              <a href="{{ release.spotify_url }}" target="_blank" class="text-3xl md:text-xl hover:text-[var(--accent)]"><i class="fab fa-spotify"></i></a>
-                          {% endif %}
-                          {% if release.bandcamp_url %}
-                              <a href="{{ release.bandcamp_url }}" target="_blank" class="text-3xl md:text-xl hover:text-[var(--accent)]"><i class="fab fa-bandcamp"></i></a>
-                          {% endif %}
-                      </div>
+                     <div class="flex gap-6 pt-1">
+                        {% if release.spotify_url %}
+                            <a href="{{ release.spotify_url }}" 
+                              target="_blank" 
+                              class="text-3xl md:text-xl text-[var(--accent)] md:text-black hover:text-[var(--accent)] transition-colors">
+                                <i class="fab fa-spotify"></i>
+                            </a>
+                        {% endif %}
+
+                        {% if release.bandcamp_url %}
+                            <a href="{{ release.bandcamp_url }}" 
+                              target="_blank" 
+                              class="text-3xl md:text-xl text-[var(--accent)] md:text-black hover:text-[var(--accent)] transition-colors">
+                                <i class="fab fa-bandcamp"></i>
+                            </a>
+                        {% endif %}
+                    </div>
                   </div>
               </div>
               {% endfor %}
