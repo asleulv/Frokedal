@@ -81,6 +81,7 @@
             filter: grayscale(1) contrast(1.2); 
             mix-blend-mode: multiply;
         }
+        
     </style>
 </head>
 
@@ -190,40 +191,43 @@
         </section>
 
         <section class="p-8 md:p-16">
-            <div class="flex flex-col md:flex-row justify-between items-baseline mb-16 md:mb-24 gap-6">
-                <h2 class="text-6xl md:text-9xl uppercase leading-[0.8] tracking-tighter">Released<br>Works</h2>
-                <p class="mono text-xs max-w-xs md:text-right opacity-50 uppercase leading-relaxed">
-                    A catalogue of organic rock and folk capture in Oslo.
-                </p>
-            </div>
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-6">
+              <h2 class="text-5xl md:text-8xl uppercase leading-none tracking-tighter">
+                  Releases
+              </h2>
+              
+              <p class="mono text-xs max-w-[150px] self-start md:self-auto md:text-right opacity-50 uppercase leading-relaxed mb-2">
+                  Swaying hippie-folk, indie pop and fiddle rock.
+              </p>
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t-2 border-l-2 border-black">
-                {% for release in releases %}
-                <div class="border-r-2 border-b-2 border-black p-8 group hover:bg-white transition-all duration-500">
-                    <div class="relative mb-10 photo-container aspect-square overflow-hidden block-border">
-                        <img src="{{ release.artwork.url }}" class="w-full h-full object-cover photo-block" alt="{{ release.title }}" />
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div class="max-w-[75%]">
-                            <h3 class="text-2xl md:text-3xl font-bold uppercase leading-none mb-3">{{ release.title }}</h3>
-                            <p class="mono text-[11px] opacity-40 italic">{{ release.format }} &mdash; {{ release.release_date|date:"Y" }}</p>
-                        </div>
-                        <div class="flex gap-6 pt-1">
-                            {% if release.spotify_url %}
-                                <a href="{{ release.spotify_url }}" target="_blank" class="text-3xl md:text-xl hover:text-[var(--accent)]"><i class="fab fa-spotify"></i></a>
-                            {% endif %}
-                            {% if release.bandcamp_url %}
-                                <a href="{{ release.bandcamp_url }}" target="_blank" class="text-3xl md:text-xl hover:text-[var(--accent)]"><i class="fab fa-bandcamp"></i></a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t-2 border-l-2 border-black">
+              {% for release in releases %}
+              <div class="border-r-2 border-b-2 border-black p-8 group hover:bg-white transition-all duration-500">
+                  <div class="relative mb-10 photo-container aspect-square overflow-hidden block-border">
+                      <img src="{{ release.artwork.url }}" class="w-full h-full object-cover photo-block" alt="{{ release.title }}" />
+                  </div>
+                  <div class="flex justify-between items-start">
+                      <div class="max-w-[75%]">
+                          <h3 class="text-2xl md:text-3xl font-bold uppercase leading-none mb-3">{{ release.title }}</h3>
+                          <p class="mono text-[11px] opacity-40 italic">{{ release.format }} &mdash; {{ release.release_date|date:"Y" }}</p>
+                      </div>
+                      <div class="flex gap-6 pt-1">
+                          {% if release.spotify_url %}
+                              <a href="{{ release.spotify_url }}" target="_blank" class="text-3xl md:text-xl hover:text-[var(--accent)]"><i class="fab fa-spotify"></i></a>
+                          {% endif %}
+                          {% if release.bandcamp_url %}
+                              <a href="{{ release.bandcamp_url }}" target="_blank" class="text-3xl md:text-xl hover:text-[var(--accent)]"><i class="fab fa-bandcamp"></i></a>
+                          {% endif %}
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </section>
 
         <footer class="border-t-2 border-black p-8 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-            <div class="display-font text-5xl transition-all hover:text-[var(--accent)]">FROKEDAL.COM</div>
+            <div class="display-font text-3xl transition-all hover:text-[var(--accent)]">FROKEDAL.COM</div>
             <div class="flex flex-col gap-1">
                 <p class="mono text-[10px] opacity-50 uppercase tracking-widest leading-none">&copy; {{ year }} Frøkedal & Familien</p>
                 <p class="mono text-[10px] opacity-50 uppercase tracking-widest leading-none">CRAFTED BY ASLE@PMONO.NO</p>

@@ -1,26 +1,35 @@
-  GNU nano 7.2                                                                             .gitignore                                                                                      # Ignore virtual environment folder
+# Virtual Environments
+venv/
+ENV/
 frokedal-venv/
+.python-version
 
-/staticfiles/
-migrations/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
 
+# Environment Variables (Secrets)
+.env
+.venv
 
-# Python bytecode files
-*.pyc
-__pycache__
-
-# Environment files
-*.env
-
-# Log files
-*.log
-
-# SQLite database file
+# Database
 *.sqlite3
 db.sqlite3
 
-# Django settings file (if it's specific to your local environment)
-settings.py
+# Media and Static files (Server handles these)
+media/
+staticfiles/
+static/
 
-# Ignore images and media files
-images/
+# Ignore all migrations EXCEPT the initialization
+# (Keep migrations in git so the server knows the schema)
+# migrations/  <-- DO NOT ignore the whole folder
+
+# OS/IDE Files
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log

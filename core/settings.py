@@ -16,6 +16,12 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 # Set this in your .env as: ALLOWED_HOSTS=frokedal.com,www.frokedal.com
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
+# Read from .env, fallback to an empty list if not found
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+
+# Important: Keep this line to help Django understand the NPM proxy
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
